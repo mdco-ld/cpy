@@ -115,6 +115,11 @@ getFileTypeFromExtension(const std::string_view extension) {
 
 void copyRawFileToClipboard(std::string_view path) {
     FILE *file = fopen(path.data(), "r");
+    if (file == nullptr) {
+        std::cerr << "Couldn't read file '" << path
+                  << "' to clipboard: " << strerror(errno) << std::endl;
+        return;
+    }
     int fd = fileno(file);
     std::string data = readAllFromFd(fd);
     copyToClipboard(data);
