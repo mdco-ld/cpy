@@ -104,7 +104,7 @@ getFileTypeFromExtension(const std::string_view extension) {
             {"jpeg", "image/jpeg"},       {"jpg", "image/jpeg"},
             {"gif", "image/gif"},         {"bmp", "image/bmp"},
             {"js", "text/javascript"},    {"html", "text/html"},
-            {"css", "text/css"},
+            {"css", "text/css"},          {"csv", "text/csv"},
         };
     auto it = wellKnownExtensions.find(extension);
     if (it != wellKnownExtensions.end()) {
